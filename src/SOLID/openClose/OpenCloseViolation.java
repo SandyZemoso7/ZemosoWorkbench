@@ -1,23 +1,12 @@
 package SOLID.openClose;
 
 public class OpenCloseViolation {
-    public abstract class Shape {
-        public abstract double area();
-    }
-
-    public class Circle extends Shape {
-        @Override
-        public double area() {
-            return 0;
+    public void sendMessage(String platform, String recipient, String message) {
+        if (platform.equals("Email")) {
+            // send email message
+        } else if (platform.equals("SMS")) {
+            // send SMS message
         }
-        // implementation
-    }
-
-    public class Square extends Shape {
-        @Override
-        public double area() {
-            return 0;
-        }
-        // implementation
+        // ...more messaging platforms
     }
 }

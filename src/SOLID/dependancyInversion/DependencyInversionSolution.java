@@ -1,26 +1,25 @@
 package SOLID.dependancyInversion;
 
 public class DependencyInversionSolution {
-    public interface Database {
-        void saveUser(User user);
+    public interface MessageSender {
+        void sendMessage(String message);
     }
 
-    public class User {
-        private Database database;
+    public class NotificationService {
+        private MessageSender messageSender;
 
-        public User(Database database) {
-            this.database = database;
+        public NotificationService(MessageSender messageSender) {
+            this.messageSender = messageSender;
         }
 
-        public void save() {
-            // save user to the database
-            database.saveUser(this);
+        public void sendNotification(String message) {
+            messageSender.sendMessage(message);
         }
     }
 
-    public class ConcreteDatabase implements Database {
-        public void saveUser(User user) {
-            // save user to the database
+    public class EmailSender implements MessageSender {
+        public void sendMessage(String message) {
+            // logic to send an email
         }
     }
 }

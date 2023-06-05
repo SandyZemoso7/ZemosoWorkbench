@@ -1,25 +1,25 @@
 package SOLID.InterfaceSegregation;
 
 public class InterfaceSegregationViolation {
-    public interface Worker {
-        void work();
-        void eat();
-        void sleep();
+    public interface Messenger {
+        void sendTextMessage(String recipient, String message);
+        void sendVoiceMessage(String recipient, String message);
+        void sendImageMessage(String recipient, String image);
     }
 
-    public class Engineer implements Worker {
+    public class ChatMessenger implements Messenger {
         @Override
-        public void work() {
+        public void sendTextMessage(String recipient, String message) {
 
         }
 
         @Override
-        public void eat() {
+        public void sendVoiceMessage(String recipient, String message) {
 
         }
 
         @Override
-        public void sleep() {
+        public void sendImageMessage(String recipient, String image) {
 
         }
         // implementation

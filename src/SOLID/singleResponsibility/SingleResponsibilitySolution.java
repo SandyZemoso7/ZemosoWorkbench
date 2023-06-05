@@ -1,15 +1,15 @@
 package SOLID.singleResponsibility;
 
 public class SingleResponsibilitySolution {
-    public class AuthenticationService {
-        public void authenticate(String username, String password) {
-            // authentication logic
+    public class MessageComposer {
+        public void composeMessage(String content) {
+            // logic to compose the message
         }
     }
 
-    public class UserProfileService {
-        public void updateName(String username) {
-            // update username logic
+    public class MessageSender {
+        public void sendMessage(String message, String recipient) {
+            // logic to send the message to the recipient
         }
     }
 }

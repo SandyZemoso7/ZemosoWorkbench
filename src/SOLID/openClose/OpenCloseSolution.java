@@ -1,31 +1,19 @@
 package SOLID.openClose;
 
 public class OpenCloseSolution {
-    public interface Shape {
-        double area();
+    public interface MessagePlatform {
+        void sendMessage(String recipient, String message);
     }
 
-    public class Circle implements Shape {
-        @Override
-        public double area() {
-            return 0;
+    public class EmailPlatform implements MessagePlatform {
+        public void sendMessage(String recipient, String message) {
+            // send email message
         }
-        // implementation
     }
 
-    public class Square implements Shape {
-        @Override
-        public double area() {
-            return 0;
+    public class SMSPlatform implements MessagePlatform {
+        public void sendMessage(String recipient, String message) {
+            // send SMS message
         }
-        // implementation
-    }
-
-    public class Triangle implements Shape {
-        @Override
-        public double area() {
-            return 0;
-        }
-        // implementation
     }
 }

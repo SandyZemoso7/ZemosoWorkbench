@@ -1,21 +1,21 @@
 package SOLID.InterfaceSegregation;
 
 public class InterfaceSegregationSolution {
-    public interface Workable {
-        void work();
+    public interface TextMessenger {
+        void sendTextMessage(String recipient, String message);
     }
 
-    public interface Eatable {
-        void eat();
+    public interface VoiceMessenger {
+        void sendVoiceMessage(String recipient, String message);
     }
 
-    public interface Sleepable {
-        void sleep();
+    public interface ImageMessenger {
+        void sendImageMessage(String recipient, String image);
     }
 
-    public class Engineer implements Workable {
+    public class ChatMessenger implements TextMessenger {
         @Override
-        public void work() {
+        public void sendTextMessage(String recipient, String message) {
 
         }
         // implementation

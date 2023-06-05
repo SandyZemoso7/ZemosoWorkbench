@@ -1,17 +1,19 @@
 package SOLID.liskovSubstitution;
 
 public class LiskovSubstitutionSolution {
-    public interface Flyable {
-        void fly();
+    public abstract class MessageSender {
+        public abstract void sendMessage(String message);
     }
 
-    public class Bird implements Flyable {
-        public void fly() {
-            // implementation
+    public class DefaultMessageSender extends MessageSender {
+        public void sendMessage(String message) {
+            // send message
         }
     }
 
-    public class Penguin extends Bird {
-        // implementation without fly() method
+    public class SecureMessageSender extends MessageSender {
+        public void sendMessage(String message) {
+            // additional security checks and then send message
+        }
     }
 }

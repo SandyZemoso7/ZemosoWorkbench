@@ -1,22 +1,21 @@
 package SOLID.dependancyInversion;
 
 public class DependencyInversionViolation {
-    public class User {
-        private Database database;
+    public class NotificationService {
+        private EmailSender emailSender;
 
-        public User(Database database) {
-            this.database = database;
+        public NotificationService() {
+            this.emailSender = new EmailSender();
         }
 
-        public void save() {
-            // save user to the database
-            database.saveUser(this);
+        public void sendNotification(String message) {
+            emailSender.sendEmail(message);
         }
     }
 
-    public class Database {
-        public void saveUser(User user) {
-            // save user to the database
+    public class EmailSender {
+        public void sendEmail(String message) {
+            // logic to send an email
         }
     }
 }

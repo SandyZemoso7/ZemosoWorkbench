@@ -1,17 +1,29 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        Scanner sc = new Scanner(System.in);
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        System.out.println("enter data based below list to throw error: ");
+        System.out.println("001: for UserAlreadyExistsException");
+        System.out.println("0012: for UserNotFoundException");
+        System.out.println("N123: for DataTypeMustBeNumberException");
+
+        String input = sc.next();
+
+        try {
+            switch (input) {
+                case "001" -> throw new UserAlreadyExistsException("User already exists with this id.");
+                case "0012" -> throw new UserNotFoundException("User not exists with this id");
+                case "N123" -> throw new DataTypeMustBeNumberException("Data must be number.");
+                case "null" -> throw new NullPointerException();
+                default -> System.out.println("Program has been executed without throwing any exception...");
+            }
+        } catch (UserAlreadyExistsException | UserNotFoundException | DataTypeMustBeNumberException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+        }finally {
+            System.out.println("Finally block executed.");
         }
     }
 }
